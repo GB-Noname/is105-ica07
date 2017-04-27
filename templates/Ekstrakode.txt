@@ -1,0 +1,96 @@
+<form action="/maps">
+    Søk google maps.. <input type="text" name="place" placeholder="UIA kristiansand">
+    <input type="submit" value="Søk!">
+</form>
+        src="https://maps.googleapis.com/maps/api/staticmap?center=Australia&size=640x400&style=element:labels|visibility:off&style=element:geometry.stroke|visibility:off&style=feature:landscape|element:geometry|saturation:-100&style=feature:water|saturation:-100|invert_lightness:true&key=AIzaSyDhdQvs9XLKd7TVYyYX98WWfB1z4VOddko">
+width="100%"
+        height="70%"
+        frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDhdQvs9XLKd7TVYyYX98WWfB1z4VOddko
+                    &q={{.MapData}}" allowfullscreen>
+
+                    <form action="/AltSubmit" method="post">
+                        <center><input type="submit" name="input" value="Praat-Comparison" />
+                        </center>
+                    </form>
+
+<style>
+    * {
+        font-family: Verdana, Arial, sans-serif;
+    }
+    a:link {
+        color:white;
+        text-decoration: none;
+    }
+    a:visited {
+        color:#dddddd;
+    }
+    a:hover {
+        color:darkviolet;
+    }
+    .button {
+        background: -webkit-linear-gradient(top,#008dfd 0,#0370ea 100%);
+        border: 1px solid #076bd2;
+        border-radius: 3px;
+        color: #fff;
+        display: none;
+        font-size: 13px;
+        font-weight: bold;
+        line-height: 1.3;
+        padding: 8px 25px;
+        text-align: center;
+        text-shadow: 1px 1px 1px #076bd2;
+        letter-spacing: normal;
+    }
+    .center {
+        padding: 10px;
+        text-align: center;
+    }
+    .final {
+        color: lightgrey;
+        padding-right: 3px;
+    }
+    .interim {
+        color: lightgrey;
+    }
+    .info {
+        font-size: 14px;
+        text-align: center;
+        color: lightgrey;
+        display: none;
+    }
+    .right {
+        float: right;
+    }
+    .sidebyside {
+        display: inline-block;
+        width: 45%;
+        min-height: 40px;
+        text-align: left;
+        vertical-align: top;
+    }
+    #headline {
+        font-size: 40px;
+        font-weight: 300;
+    }
+    #info {
+        font-size: 20px;
+        text-align: center;
+        color: lightgrey;
+        visibility: hidden;
+    }
+    #results {
+        font-size: 14px;
+        font-weight: bold;
+        border: 1px solid black;
+        padding: 15px;
+        text-align: left;
+        min-height: 150px;
+        background-color: #777777;
+    }
+    #start_button {
+        border: 0;
+        background-color:transparent;
+        padding: 0;
+    }
+</style>

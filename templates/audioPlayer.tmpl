@@ -1,0 +1,8 @@
+{{ define "content" }}
+<center>
+    <h1>Here is the text to speech you requested</h1>
+<audio controls autoplay>
+    <source src="{{.Url}}" type="audio/mpeg">
+</audio>
+</center>
+{{ end }}
