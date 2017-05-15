@@ -1,36 +1,55 @@
 package main
+
 import (
-	"fmt"
+	"log"
+	"crypto/tls"
 	"net"
+	"bufio"
 )
 
+func main() {
+	log.SetFlags(log.Lshortfile)
 
-func sendResponse(conn *net.UDPConn, addr *net.UDPAddr) {
-	_,err := conn.WriteToUDP([]byte("From server: Hello I got your mesage "), addr)
+	cer, err := tls.LoadX509KeyPair("server.crt", "server.key")
 	if err != nil {
-		fmt.Printf("Couldn't send response %v", err)
+		log.Println(err)
+		return
+	}
+
+	config := &tls.Config{Certificates: []tls.Certificate{cer}}
+	ln, err := tls.Listen("tcp", ":443", config)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+	defer ln.Close()
+
+	for {
+		conn, err := ln.Accept()
+		if err != nil {
+			log.Println(err)
+			continue
+		}
+		go handleConnection(conn)
 	}
 }
 
-
-func main() {
-	p := make([]byte, 2048)
-	addr := net.UDPAddr{
-		Port: 1234,
-		IP: net.ParseIP("127.0.0.1"),
-	}
-	ser, err := net.ListenUDP("udp", &addr)
-	if err != nil {
-		fmt.Printf("Some error %v\n", err)
-		return
-	}
+func handleConnection(conn net.Conn) {
+	defer conn.Close()
+	r := bufio.NewReader(conn)
 	for {
-		_,remoteaddr,err := ser.ReadFromUDP(p)
-		fmt.Printf("Read a message from %v %s \n", remoteaddr, p)
-		if err !=  nil {
-			fmt.Printf("Some error  %v", err)
-			continue
+		msg, err := r.ReadString('\n')
+		if err != nil {
+			log.Println(err)
+			return
 		}
-		go sendResponse(ser, remoteaddr)
+
+		println(msg)
+
+		n, err := conn.Write([]byte("world\n"))
+		if err != nil {
+			log.Println(n, err)
+			return
+		}
 	}
 }

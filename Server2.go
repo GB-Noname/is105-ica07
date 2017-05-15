@@ -1,31 +1,23 @@
 package main
 
 import (
-	"net"
-	"fmt"
+	// "fmt"
+	// "io"
+	"net/http"
 	"log"
 )
 
-func handleConnection(c net.Conn) {
-	//some code...
+func HelloServer(w http.ResponseWriter, req *http.Request) {
+	w.Header().Set("Content-Type", "text/plain")
+	w.Write([]byte("This is an example server.\n"))
+	// fmt.Fprintf(w, "This is an example server.\n")
+	// io.WriteString(w, "This is an example server.\n")
+}
 
-	//Simple read from connection
-	buffer := make([]byte, 1024)
-	c.Read(buffer)
-
-	//simple write to connection
-	c.Write([]byte("Hello from server"))
-
-	// listen to incoming udp packets
-	pc, err := net.ListenPacket("udp", "host:port")
+func main() {
+	http.HandleFunc("/hello", HelloServer)
+	err := http.ListenAndServeTLS(":443", "server.crt", "server.key", nil)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal("ListenAndServe: ", err)
 	}
-	defer pc.Close()
-
-	//simple read
-	buffer := make([]byte, 1024)
-	pc.ReadFrom(buffer)
-
-	//simple write
-	pc.WriteTo([]byte("Hello from client"), addr)
+}
