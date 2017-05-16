@@ -1,27 +1,18 @@
 package main
 
 import (
-	"crypto/tls"
-	"crypto/x509"
-	"io/ioutil"
 	"log"
+	"crypto/tls"
 )
 
 func main() {
 	log.SetFlags(log.Lshortfile)
 
-	cert, err := ioutil.ReadFile("server.crt")
-	if err != nil {
-		log.Fatalf("Couldn't load file", err)
-	}
-	certPool := x509.NewCertPool()
-	certPool.AppendCertsFromPEM(cert)
-
 	conf := &tls.Config{
-		RootCAs: certPool,
+		//InsecureSkipVerify: true,
 	}
 
-	conn, err := tls.Dial("tcp", "localhost:443", conf)
+	conn, err := tls.Dial("tcp", "127.0.0.1:443", conf)
 	if err != nil {
 		log.Println(err)
 		return
