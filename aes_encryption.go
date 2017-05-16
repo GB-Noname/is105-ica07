@@ -75,7 +75,7 @@ func decrypt(key []byte, text string) (string, error) {
 	}
 
 	if (len(decodedMsg) % aes.BlockSize) != 0 {
-		return "", errors.New("blocksize must be multipe of decoded message length")
+		return "", errors.New("blocksize must be multiple of decoded message length")
 	}
 
 	iv := decodedMsg[:aes.BlockSize]
@@ -94,7 +94,7 @@ func decrypt(key []byte, text string) (string, error) {
 
 func main() {
 	key := []byte("LKHlhb899Y09olUi")
-	encryptMsg, _ := encrypt(key, "Hello World")
+	encryptMsg, _ := encrypt(key, "Møte Fr 5.5 14:45 Flåklypa")
 	msg, _ := decrypt(key, encryptMsg)
 	fmt.Println(msg) // Hello World
 }
