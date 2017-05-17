@@ -40,7 +40,7 @@ func VerifyPrime() {
 
 func GenerateSecret(g float64, p float64, a float64 ) float64{
 
-	primes := PrimeStruct{}
+	//primes := PrimeStruct{}
 
 	/*
 	primes.Prime3 = MakePrime()
@@ -62,13 +62,18 @@ func GenerateSecret(g float64, p float64, a float64 ) float64{
 	fin := math.Pow(g, a)
 	fmt.Println(fin)
 
-	primes.LocalSecret = math.Mod(fin, p)
-	fmt.Println(primes.LocalSecret)
+	secret := math.Mod(fin, p)
+	fmt.Println(secret)
 
-	return primes.LocalSecret
+	return secret
 }
 
-func CombineSecret() {
+func CombineSecret(ForeignSecret float64, localRand float64, p float64) float64{
+	fin := math.Pow(ForeignSecret, localRand)
+	fmt.Println(fin)
 
+	secret := math.Mod(fin, p)
+	fmt.Println(secret)
+	return secret
 
 }
