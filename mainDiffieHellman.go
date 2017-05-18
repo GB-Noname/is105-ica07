@@ -1,19 +1,12 @@
 package main
 
 import (
-
 	"./Correspondense"
 	"fmt"
 )
 
 func main() {
-	/*
-	prime1 := Correspondense.MakePrime()
-	fmt.Println(prime1)
-	prime2 := Correspondense.GetPrime(prime1)
-	fmt.Print(prime2)
-	*/
-
+	
 	/*
 	Due to problems with assignment this is an ilustration of
 	how we would implement diffie hellman key exhcange
@@ -21,10 +14,14 @@ func main() {
 	Person 1 secret number: 5
 	Person 2 secret number: 7
 	 */
+	var g float64 = 10
+	var p float64 = 541
+	var sn1 float64 = 5
+	var sn2 float64 = 7
 
 	//Generating secret for both correspondents based on diffie-hellman formula
-	secret1 := Correspondense.GenerateSecret(10,541,5)
-	secret2 := Correspondense.GenerateSecret(10,541,7)
+	secret1 := Correspondense.GenerateSecret(g,p,sn1)
+	secret2 := Correspondense.GenerateSecret(g,p,sn2)
 	fmt.Println("Person 1 has the secret: ", secret1)
 	fmt.Println("Person 2 has the secret: ", secret2)
 
@@ -33,6 +30,5 @@ func main() {
 	secret1Calc := Correspondense.CombineSecret(secret2,5, 541)
 	fmt.Println("Person 1 has calculated the secret from person 2 to: ", secret2Calc)
 	fmt.Println("Person 2 has calculated the secret from person 2 to: ", secret1Calc)
-
 
 }
