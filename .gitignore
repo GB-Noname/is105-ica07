@@ -9,7 +9,8 @@
 # Folders
 _obj
 _test
-/.idea/
+.idea
+
 
 # Architecture specific extensions/prefixes
 *.[568vq]
@@ -27,4 +28,4 @@ _testmain.go
 *.test
 *.prof
 *.xml
-
+*.iml
