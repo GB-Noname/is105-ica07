@@ -9,7 +9,7 @@
 # Folders
 _obj
 _test
-/.idea/
+.idea
 
 # Architecture specific extensions/prefixes
 *.[568vq]

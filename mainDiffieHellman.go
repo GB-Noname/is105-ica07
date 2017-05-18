@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	
+
 	/*
 	Due to problems with assignment this is an ilustration of
 	how we would implement diffie hellman key exhcange
