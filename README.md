@@ -1,4 +1,11 @@
 ﻿# is105-ica07
+ 
+#### Bidragsytere: 
+
+I Github står det 5 contributors. Alle har bidratt, vi har jobbet i team.
+Ampede15 har samarbeidet med MortenSchibbye, arnebw13 har samarbeidet med asalmu16, 
+CastleDev har samarbeidet med adrianlo, Fosso har jobbet alene. 
+
 
 ### Oppgave 1
 
