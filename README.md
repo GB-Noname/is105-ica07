@@ -1,4 +1,4 @@
-# is105-ica07
+﻿# is105-ica07
 
 ### Oppgave 1
 
@@ -77,6 +77,7 @@ mainDiffieHellman.go
 
 Importerer mappen "Correspondense" og bruker kode fra den.
 Skriver ut secret og random number til to personer og det kalkulerte hemmelige tallet. 
+Gjennom Diffie-Hellmann får en ikke tilgang til informasjonene sendt mellom brukerne uten å ha riktig nøkkel basert i primtallet som benyttes gjennom a^b modulo=A til å overflyttes uten at det fysisk er mulig å gjette primtallet orginalt brukt. Dette gjør at all overføring er ekstremt sikker. 
 
 
 
