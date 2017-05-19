@@ -27,6 +27,7 @@ https://github.com/GB-Noname/is105-ica07
 b. secret_calculation.go og mainDiffieHellman.go
 
 
+
 #### Kode-kommentarer:
 
 udpclient.go
@@ -73,6 +74,7 @@ fin, kalkulerer parametere
 secret, kalkulerer fin og parameter 
 
 mainDiffieHellman.go
+
 Importerer mappen "Correspondense" og bruker kode fra den.
 Skriver ut secret og random number til to personer og det kalkulerte hemmelige tallet. 
 
